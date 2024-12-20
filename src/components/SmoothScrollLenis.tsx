@@ -1,9 +1,8 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { TbChristmasTreeFilled } from "react-icons/tb";
 import {
   motion,
   useMotionTemplate,
-  useMotionValueEvent,
   useScroll,
   useTransform,
 } from "framer-motion";

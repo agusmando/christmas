@@ -1,8 +1,8 @@
-import { Engine, ZIndex } from "tsparticles-engine";
 import { motion } from "framer-motion";
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
+import { Engine } from "tsparticles-engine";
 
 const christmasUrl = "/src/assets/images/christmas-pngs/";
 const HeroSection = () => {
@@ -15,9 +15,7 @@ const HeroSection = () => {
     },
   };
 
-  const [count, setCount] = useState(50);
-
-  const particlesInit = useCallback(async (engine) => {
+  const particlesInit = useCallback(async (engine: Engine) => {
     await loadFull(engine); // Carga completa del motor de tsparticles
   }, []);
 
