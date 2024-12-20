@@ -1,0 +1,48 @@
+@font-face {
+    font-family: 'UT Laurelle';
+    src: url('UTLaurelle-Light.eot');
+    src: local('UT Laurelle Light'), local('UTLaurelle-Light'),
+        url('UTLaurelle-Light.eot?#iefix') format('embedded-opentype'),
+        url('UTLaurelle-Light.woff2') format('woff2'),
+        url('UTLaurelle-Light.woff') format('woff'),
+        url('UTLaurelle-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'UT Laurelle';
+    src: url('UTLaurelle-Regular.eot');
+    src: local('UT Laurelle Regular'), local('UTLaurelle-Regular'),
+        url('UTLaurelle-Regular.eot?#iefix') format('embedded-opentype'),
+        url('UTLaurelle-Regular.woff2') format('woff2'),
+        url('UTLaurelle-Regular.woff') format('woff'),
+        url('UTLaurelle-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'UT Laurelle';
+    src: url('UTLaurelle-Bold.eot');
+    src: local('UT Laurelle Bold'), local('UTLaurelle-Bold'),
+        url('UTLaurelle-Bold.eot?#iefix') format('embedded-opentype'),
+        url('UTLaurelle-Bold.woff2') format('woff2'),
+        url('UTLaurelle-Bold.woff') format('woff'),
+        url('UTLaurelle-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'UT Laurelle Press';
+    src: url('UTLaurelle-Press.eot');
+    src: local('UT Laurelle Press'), local('UTLaurelle-Press'),
+        url('UTLaurelle-Press.eot?#iefix') format('embedded-opentype'),
+        url('UTLaurelle-Press.woff2') format('woff2'),
+        url('UTLaurelle-Press.woff') format('woff'),
+        url('UTLaurelle-Press.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
