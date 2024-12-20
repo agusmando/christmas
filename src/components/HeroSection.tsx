@@ -4,7 +4,7 @@ import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import { Engine } from "tsparticles-engine";
 
-const christmasUrl = "/images/christmas-pngs";
+const christmasUrl = "/assets/images/christmas-pngs";
 const HeroSection = () => {
   const swayAnimation = {
     rotate: [-8, 8, -8],
