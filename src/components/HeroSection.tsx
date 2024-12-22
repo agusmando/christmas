@@ -1,8 +1,4 @@
 import { motion } from "framer-motion";
-import { useCallback } from "react";
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
-import { Engine } from "tsparticles-engine";
 
 const christmasUrl = "/assets/images/christmas-pngs";
 const HeroSection = () => {
@@ -15,54 +11,12 @@ const HeroSection = () => {
     },
   };
 
-  const particlesInit = useCallback(async (engine: Engine) => {
-    await loadFull(engine); // Carga completa del motor de tsparticles
-  }, []);
-
   return (
     // bg-gradient-to-r from-[#2f5323] to-[#3a8232]
     <div
       className=" h-[100vh] w-full flex-col flex items-center justify-center relative overflow-hidden"
       style={{ backgroundColor: "#2D4031", transformOrigin: "top center" }}
     >
-      <Particles
-        id="tsparticles"
-        style={{ zIndex: 1000, position: "relative" }}
-        init={particlesInit}
-        options={{
-          fullScreen: {
-            enable: false, // Evita que ocupe toda la pantalla si está dentro de un div específico
-            zIndex: 1000,
-          },
-          particles: {
-            color: {
-              value: "#fff",
-            },
-            number: {
-              value: 100, // Número de copos de nieve
-            },
-            opacity: {
-              value: { min: 0.3, max: 1 },
-            },
-            shape: {
-              type: "circle",
-            },
-            size: {
-              value: { min: 1, max: 4 },
-            },
-            move: {
-              direction: "bottom",
-              enable: true,
-              speed: { min: 1, max: 3 },
-              straight: false, // Hace que los copos caigan con movimientos más realistas
-            },
-          },
-          background: {
-            color: "transparent", // Color de fondo
-          },
-        }}
-        className="absolute  top-0 left-0 w-full h-full"
-      />
       <div className="relative flex flex-col w-full justify-center items-center">
         <h1
           style={{
@@ -92,7 +46,11 @@ const HeroSection = () => {
         <img
           src={christmasUrl + "/decoration5.webp"}
           alt="Title enhancer"
-          style={{ width: "215px", transform: "translateY(-40px)" }}
+          style={{
+            width: "215px",
+            transform: "translateY(-40px)",
+            zIndex: 10000,
+          }}
         />
       </div>
       {/* top images */}
