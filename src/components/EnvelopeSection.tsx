@@ -21,14 +21,14 @@ const EnvelopeSection = () => {
   // const opacity = useTransform(scrollYProgress, [0.25, 0.5], [0, 1]);
 
   // Segunda animación: rotación 3D para mostrar otra imagen
-  const rotationY = useTransform(scrollYProgress, [0.3, 0.65], [0, 180]);
+  const rotationY = useTransform(scrollYProgress, [0.3, 0.4], [0, 180]);
 
   // Tercera animación: movimiento hacia la parte inferior de la página
   // const yPosition = useTransform(scrollYProgress, [0.45, 1], ["50vh", "300vh"]);
 
   // Animación de solapa del sobre
-  const rotationXClosed = useTransform(scrollYProgress, [0.7, 0.8], [0, 180]);
-  const rotationXOpen = useTransform(scrollYProgress, [0.7, 0.8], [180, 0]);
+  const rotationXClosed = useTransform(scrollYProgress, [0.5, 0.6], [0, 180]);
+  const rotationXOpen = useTransform(scrollYProgress, [0.5, 0.6], [180, 0]);
 
   // Añadimos suavidad a las transiciones
   const smoothX = useSpring(xPosition, { stiffness: 100, damping: 20 });
