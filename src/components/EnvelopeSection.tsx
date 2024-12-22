@@ -27,8 +27,8 @@ const EnvelopeSection = () => {
   // const yPosition = useTransform(scrollYProgress, [0.45, 1], ["50vh", "300vh"]);
 
   // Animación de solapa del sobre
-  const rotationXClosed = useTransform(scrollYProgress, [0.5, 0.55], [0, 180]);
-  const rotationXOpen = useTransform(scrollYProgress, [0.5, 0.55], [180, 0]);
+  const rotationXClosed = useTransform(scrollYProgress, [0.4, 0.42], [0, 180]);
+  const rotationXOpen = useTransform(scrollYProgress, [0.4, 0.42], [180, 0]);
 
   // Añadimos suavidad a las transiciones
   const smoothX = useSpring(xPosition, { stiffness: 100, damping: 20 });
