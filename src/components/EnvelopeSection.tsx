@@ -5,7 +5,7 @@ import {
   useSpring,
   useMotionValueEvent,
 } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 const christmasUrl = "/assets/images/christmas-pngs";
 
