@@ -1,15 +1,29 @@
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { useRef } from "react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useSpring,
+  useMotionValueEvent,
+} from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 const christmasUrl = "/assets/images/christmas-pngs";
 
 const EnvelopeSection = () => {
   const ref = useRef(null);
 
+  const [isOpen, setIsOpen] = useState(false);
   // Configuración del scroll
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start center", "end center"],
+  });
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    if (latest > 0.47) {
+      setIsOpen(true);
+    } else {
+      setIsOpen(false);
+    }
   });
 
   // Primera animación: movimiento desde la derecha hacia el centro
@@ -18,8 +32,16 @@ const EnvelopeSection = () => {
     [0.1, 0.2, 0.3],
     ["400vw", "0vw", "0vw"]
   );
-  // const opacity = useTransform(scrollYProgress, [0.25, 0.5], [0, 1]);
-
+  const yPosition = useTransform(
+    scrollYProgress,
+    [0.6, 0.7, 0.8],
+    ["0vh", "300vh", "300vh"]
+  );
+  const letterOutYPosition = useTransform(
+    scrollYProgress,
+    [0.6, 0.7, 0.8],
+    ["0vh", "0vh", "-300vh"]
+  );
   // Segunda animación: rotación 3D para mostrar otra imagen
   const rotationY = useTransform(scrollYProgress, [0.3, 0.4], [0, 180]);
 
@@ -32,7 +54,7 @@ const EnvelopeSection = () => {
 
   // Añadimos suavidad a las transiciones
   const smoothX = useSpring(xPosition, { stiffness: 100, damping: 20 });
-  // const smoothY = useSpring(yPosition, { stiffness: 100, damping: 20 });
+  const smoothY = useSpring(yPosition, { stiffness: 100, damping: 20 });
   const smoothEnvelopeRotation = useSpring(rotationY, {
     stiffness: 100,
     damping: 20,
@@ -41,7 +63,11 @@ const EnvelopeSection = () => {
     stiffness: 100,
     damping: 20,
   });
-  const smootLidRotationOpen = useSpring(rotationXOpen, {
+  const smoothLidRotationOpen = useSpring(rotationXOpen, {
+    stiffness: 100,
+    damping: 20,
+  });
+  const smoothLetterOutYPosition = useSpring(letterOutYPosition, {
     stiffness: 100,
     damping: 20,
   });
@@ -64,13 +90,12 @@ const EnvelopeSection = () => {
         style={{
           position: "fixed",
           top: "30%",
-          left: "10%",
+          left: "7.5%",
           x: smoothX,
-          // y: smoothY,
+          y: smoothY,
           rotateY: smoothEnvelopeRotation,
-          // opacity,
-          width: "330px",
-          height: "210px",
+          width: "350px",
+          height: "225px",
           backgroundImage: `url('${christmasUrl}/envelope-back.png')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -88,24 +113,44 @@ const EnvelopeSection = () => {
             backgroundSize: "cover",
             backgroundPosition: "center",
             rotateY: 180,
+            transformStyle: "preserve-3d",
             zIndex: 10000,
           }}
         >
+          {/* Carta */}
+          <motion.div
+            style={{
+              zIndex: 9990,
+              position: "absolute",
+              top: "0px",
+              left: "10px",
+              y: smoothLetterOutYPosition,
+              width: "330px",
+              height: "215px",
+              translateZ: "-1px",
+              backfaceVisibility: "hidden",
+              backgroundImage: `url('${christmasUrl}/Paper.png')`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
           {/* La solapa cerrada del sobre */}
           <motion.div
             style={{
               position: "absolute",
               top: "0px",
               left: "-5px",
-              width: "340px",
-              height: "67px",
+              width: "360px",
+              height: "73px",
               // backfaceVisibility: "hidden",
+              // transformStyle: "preserve-3d",
               rotateX: smoothLidRotationClosed,
               backgroundImage: `url('${christmasUrl}/closed-envelope-lid.png')`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               transformOrigin: "top", // Ajusta el eje de rotación
-              zIndex: 10001,
+              translateZ: isOpen ? "-1px" : "1px",
+              zIndex: isOpen ? 9980 : 10001,
             }}
           >
             {/* La solapa abierta del sobre */}
@@ -114,16 +159,15 @@ const EnvelopeSection = () => {
                 position: "absolute",
                 top: "0px",
                 left: "5px",
-                width: "330px",
-                height: "67px",
+                width: "350px",
+                height: "73px",
                 backfaceVisibility: "hidden",
-
-                rotateX: smootLidRotationOpen,
+                rotateX: smoothLidRotationOpen,
                 backgroundImage: `url('${christmasUrl}/open-envelope-lid.png')`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 transformOrigin: "top", // Ajusta el eje de rotación
-                zIndex: 10001,
+                zIndex: isOpen ? 9980 : 10001,
               }}
             />
           </motion.div>
