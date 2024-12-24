@@ -14,12 +14,12 @@ const HelpersSection = () => {
 
   const yPosition = useTransform(
     scrollYProgress,
-    [0.5, 0.1, 0.15, 0.2],
+    [0.05, 0.1, 0.15, 0.2],
     ["200vh", "0vh", "0vh", "-400vh"]
   );
   const opacity = useTransform(
     scrollYProgress,
-    [0.5, 0.1, 0.15, 0.2],
+    [0.05, 0.1, 0.15, 0.2],
     [0, 1, 1, 0]
   );
 
@@ -105,12 +105,12 @@ const HelpersSection = () => {
         style={{
           zIndex: 10000,
           position: "fixed",
-          top: "15%",
+          top: "9%",
           right: "40px",
           y: smoothIndiaY,
           opacity: smoothIndiaOpacity,
-          width: "168px",
-          height: "198px",
+          width: "200px",
+          height: "237px",
           backgroundImage: `url('${christmasUrl}/India.png')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -120,12 +120,12 @@ const HelpersSection = () => {
         style={{
           zIndex: 10000,
           position: "fixed",
-          top: "36%",
+          top: "33%",
           left: "40px",
           y: smoothTobyY,
           opacity: smoothTobyOpacity,
-          width: "169px",
-          height: "230px",
+          width: "202px",
+          height: "275px",
           backgroundImage: `url('${christmasUrl}/Toby.png')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -135,12 +135,12 @@ const HelpersSection = () => {
         style={{
           zIndex: 10000,
           position: "fixed",
-          top: "63%",
+          top: "65%",
           right: "40px",
           y: smoothMiniY,
           opacity: smoothMiniOpacity,
-          width: "170px",
-          height: "202px",
+          width: "202px",
+          height: "241px",
           backgroundImage: `url('${christmasUrl}/Mini.png')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
