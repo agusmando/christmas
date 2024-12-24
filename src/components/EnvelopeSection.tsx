@@ -13,6 +13,7 @@ const EnvelopeSection = () => {
   const ref = useRef(null);
 
   const [isOpen, setIsOpen] = useState(false);
+
   // Configuración del scroll
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -34,13 +35,13 @@ const EnvelopeSection = () => {
   );
   const yPosition = useTransform(
     scrollYProgress,
-    [0.6, 0.7, 0.8],
-    ["0vh", "300vh", "300vh"]
+    [0.6, 0.7, 0.8, 1],
+    ["0vh", "300vh", "300vh", "-600vh"]
   );
   const letterOutYPosition = useTransform(
     scrollYProgress,
     [0.6, 0.7, 0.8],
-    ["0vh", "0vh", "-300vh"]
+    ["0vh", "-300vh", "-300vh"]
   );
   // Segunda animación: rotación 3D para mostrar otra imagen
   const rotationY = useTransform(scrollYProgress, [0.3, 0.4], [0, 180]);
@@ -84,7 +85,7 @@ const EnvelopeSection = () => {
         backgroundRepeat: "no-repeat",
         backgroundPosition: "bottom",
       }}
-      className="relative w-full"
+      className=" w-full"
     >
       <motion.div
         style={{
@@ -107,6 +108,8 @@ const EnvelopeSection = () => {
         <motion.div
           style={{
             position: "absolute",
+            width: "350px",
+            height: "225px",
             inset: 0,
             backfaceVisibility: "hidden",
             backgroundImage: `url('${christmasUrl}/envelope-front.png')`,

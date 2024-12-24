@@ -6,6 +6,7 @@ import { Engine } from "tsparticles-engine";
 import "./App.css";
 import EnvelopeSection from "./components/EnvelopeSection";
 import HeroSection from "./components/HeroSection";
+import HelpersSection from "./components/HelpersSection";
 
 function App() {
   const particlesInit = useCallback(async (engine: Engine) => {
@@ -55,6 +56,7 @@ function App() {
       />
       <HeroSection />
       <EnvelopeSection />
+      <HelpersSection />
     </>
   );
 }
