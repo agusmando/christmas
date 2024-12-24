@@ -25,24 +25,24 @@ const HelpersSection = () => {
 
   const indiaYPosition = useTransform(
     scrollYProgress,
-    [0.2, 0.3],
+    [0.2, 0.25],
     ["200vh", "0vh"]
   );
-  const indiaOpacity = useTransform(scrollYProgress, [0.2, 0.3], [0, 1]);
+  const indiaOpacity = useTransform(scrollYProgress, [0.2, 0.25], [0, 1]);
 
   const tobyYPosition = useTransform(
     scrollYProgress,
-    [0.4, 0.5],
+    [0.3, 0.35],
     ["200vh", "0vh"]
   );
-  const tobyOpacity = useTransform(scrollYProgress, [0.4, 0.5], [0, 1]);
+  const tobyOpacity = useTransform(scrollYProgress, [0.3, 0.35], [0, 1]);
 
   const miniYPosition = useTransform(
     scrollYProgress,
-    [0.6, 0.7],
+    [0.4, 0.45],
     ["200vh", "0vh"]
   );
-  const miniOpacity = useTransform(scrollYProgress, [0.6, 0.7], [0, 1]);
+  const miniOpacity = useTransform(scrollYProgress, [0.4, 0.45], [0, 1]);
 
   const smoothY = useSpring(yPosition, { stiffness: 100, damping: 20 });
   const smoothOpacity = useSpring(opacity, { stiffness: 100, damping: 20 });
