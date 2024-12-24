@@ -1,5 +1,5 @@
 import { Particles } from "react-tsparticles";
-import { useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { loadFull } from "tsparticles";
 import { Engine } from "tsparticles-engine";
 
@@ -7,12 +7,27 @@ import "./App.css";
 import EnvelopeSection from "./components/EnvelopeSection";
 import HeroSection from "./components/HeroSection";
 import HelpersSection from "./components/HelpersSection";
+import Loader from "./components/Loader";
 
 function App() {
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadFull(engine); // Carga completa del motor de tsparticles
   }, []);
 
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simula la carga de datos o recursos
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 4000); // Cambia el tiempo según tus necesidades
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <>
       {/* <SmoothScrollLenis /> */}

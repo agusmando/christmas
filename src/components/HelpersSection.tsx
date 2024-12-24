@@ -79,7 +79,7 @@ const HelpersSection = () => {
         backgroundColor: "#DB2626",
         backgroundImage: `url(${christmasUrl}/BG_helpers.png)`,
         backgroundAttachment: "fixed",
-        backgroundSize: "contain",
+        backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "bottom",
       }}
@@ -96,7 +96,7 @@ const HelpersSection = () => {
         }}
       >
         <p
-          style={{ fontFamily: "Laurelle", color: "#FAB01B", fontSize: "36px" }}
+          style={{ fontFamily: "Laurelle", color: "#FAB01B", fontSize: "42px" }}
         >
           También quieren saludarte...
         </p>
